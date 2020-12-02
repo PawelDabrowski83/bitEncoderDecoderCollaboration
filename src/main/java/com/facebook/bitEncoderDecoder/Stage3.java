@@ -17,14 +17,14 @@ public class Stage3 {
         return decodedInput.toString();
     }
 
-    private  char getDoubledChar(String trippled) {
+    private  char getDoubledChar(String tripled) {
         char doubledChar = ' ';
         Set<Character> mapWithChars = new HashSet<>();
-        for (int i = 0; i < trippled.length(); i++) {
-            if (mapWithChars.contains(trippled.charAt(i))) {
-                return trippled.charAt(i);
+        for (int i = 0; i < tripled.length(); i++) {
+            if (mapWithChars.contains(tripled.charAt(i))) {
+                return tripled.charAt(i);
             } else {
-                mapWithChars.add(trippled.charAt(i));
+                mapWithChars.add(tripled.charAt(i));
             }
         }
         return doubledChar;
