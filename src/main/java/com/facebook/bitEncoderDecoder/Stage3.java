@@ -1,6 +1,6 @@
 package com.facebook.bitEncoderDecoder;
 
-import com.facebook.bitEncoderDecoder.exception.InputNotEcodedCorrectly;
+import com.facebook.bitEncoderDecoder.exception.InputNotEncodedCorrectly;
 
 import java.util.*;
 
@@ -30,7 +30,7 @@ public class Stage3 {
             }
         }
         if (doubledChar == ' ') {
-            throw new InputNotEcodedCorrectly();
+            throw new InputNotEncodedCorrectly();
         }
         return doubledChar;
     }
