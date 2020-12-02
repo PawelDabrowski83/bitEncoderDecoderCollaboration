@@ -1,11 +1,13 @@
 package com.facebook.bitEncoderDecoder;
 
+import com.facebook.bitEncoderDecoder.exception.InputNotEcodedCorrectly;
+
 import java.util.*;
 
 public class Stage3 {
 
 
-    public  String decode(String input) {
+    public String decode(String input) {
         InputValidator.validateInput(input);
         String[] arrayWithChars = Utils.prepareSegmentedInput(input);
         StringBuilder decodedInput = new StringBuilder();
@@ -17,7 +19,7 @@ public class Stage3 {
         return decodedInput.toString();
     }
 
-    private  char getDoubledChar(String tripled) {
+    private char getDoubledChar(String tripled) {
         char doubledChar = ' ';
         Set<Character> mapWithChars = new HashSet<>();
         for (int i = 0; i < tripled.length(); i++) {
@@ -26,6 +28,9 @@ public class Stage3 {
             } else {
                 mapWithChars.add(tripled.charAt(i));
             }
+        }
+        if (doubledChar == ' ') {
+            throw new InputNotEcodedCorrectly();
         }
         return doubledChar;
     }
