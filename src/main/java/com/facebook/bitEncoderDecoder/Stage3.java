@@ -10,14 +10,14 @@ public class Stage3 {
         String[] arrayWithChars = Utils.prepareSegmentedInput(input);
         StringBuilder decodedInput = new StringBuilder();
         for (int i = 0; i < arrayWithChars.length; i++) {
-            char doubledChar = doubledChar(arrayWithChars[i]);
+            char doubledChar = getDoubledChar(arrayWithChars[i]);
             decodedInput.append(doubledChar);
         }
 
         return decodedInput.toString();
     }
 
-    private  char doubledChar(String trippled) {
+    private  char getDoubledChar(String trippled) {
         char doubledChar = ' ';
         Set<Character> mapWithChars = new HashSet<>();
         for (int i = 0; i < trippled.length(); i++) {
