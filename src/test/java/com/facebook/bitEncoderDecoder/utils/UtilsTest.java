@@ -1,10 +1,7 @@
-package com.facebook.com.bitEncoderDecoder.utils;
+package com.facebook.bitEncoderDecoder.utils;
 
-import com.facebook.bitEncoderDecoder.utils.Utils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UtilsTest {
 
@@ -15,7 +12,7 @@ public class UtilsTest {
         int UPPER = 20;
 
         while(--loops > 0){
-            assertTrue(Utils.getRandomInRange(LOWER, UPPER) <= UPPER);
+            Assertions.assertTrue(Utils.getRandomInRange(LOWER, UPPER) <= UPPER);
         }
     }
 
@@ -32,7 +29,7 @@ public class UtilsTest {
 
         // then
         for (int i = 0; i < chars.length; i++) {
-            assertNotEquals(chars[i], actual[i]);
+            Assertions.assertNotEquals(chars[i], actual[i]);
         }
     }
 }
