@@ -10,13 +10,8 @@ public class SymbolEncoder implements Encoder {
     @Override
     public String encode(String input) {
         input = validateInput(input);
-
-        StringBuilder encodeString = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            String multipliedChar = String.valueOf(input.charAt(i)).repeat(MULTIPLICATION_FACTOR);
-            encodeString.append(multipliedChar);
-        }
-        return encodeString.toString();
+        StringBuilder encodedString = getEncodedString(input);
+        return encodedString.toString();
     }
 
     private String validateInput(String input) {
@@ -27,6 +22,15 @@ public class SymbolEncoder implements Encoder {
             return "";
         }
         return input;
+    }
+
+    private StringBuilder getEncodedString(String input) {
+        StringBuilder encodedString = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            String multipliedChar = String.valueOf(c).repeat(MULTIPLICATION_FACTOR);
+            encodedString.append(multipliedChar);
+        }
+        return encodedString;
     }
 
 }
