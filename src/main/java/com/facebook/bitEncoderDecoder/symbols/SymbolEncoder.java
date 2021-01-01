@@ -1,6 +1,7 @@
 package com.facebook.bitEncoderDecoder.symbols;
 
 import com.facebook.bitEncoderDecoder.app.Encoder;
+import com.facebook.bitEncoderDecoder.exception.InputIsNullException;
 
 public class SymbolEncoder implements Encoder {
 
@@ -10,7 +11,7 @@ public class SymbolEncoder implements Encoder {
     public String encode(String input) {
         StringBuilder encodeString = new StringBuilder();
         if (input == null) {
-            throw new IllegalArgumentException();
+            throw new InputIsNullException();
         } else if (input.equalsIgnoreCase(" ")) {
             return "";
         }
