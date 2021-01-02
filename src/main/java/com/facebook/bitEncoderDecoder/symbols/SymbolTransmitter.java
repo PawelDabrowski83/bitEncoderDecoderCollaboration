@@ -13,10 +13,13 @@ public class SymbolTransmitter implements Transmitter {
         if (triplets.length == 0){
             return "";
         }
+        return sendMessage(triplets);
+    }
+
+    private String sendMessage(String[] triplets) {
         StringBuilder target = new StringBuilder();
         for (String triplet : triplets){
-            String distorted = generateNoise(triplet);
-            target.append(distorted);
+            target.append(generateNoise(triplet));
         }
         return target.toString();
     }
