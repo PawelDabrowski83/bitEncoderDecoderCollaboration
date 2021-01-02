@@ -4,7 +4,7 @@ import com.facebook.bitEncoderDecoder.app.Transmitter;
 import com.facebook.bitEncoderDecoder.utils.InputValidator;
 import com.facebook.bitEncoderDecoder.utils.Utils;
 
-public class SymbolTransmitter implements Transmitter {
+public class SymbolTransmitterImpl implements Transmitter {
 
     @Override
     public String send(String input){
