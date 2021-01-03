@@ -1,7 +1,6 @@
-package com.facebook.com.bitEncoderDecoder.bitwise;
+package com.facebook.bitEncoderDecoder.bitwise;
 
 import com.facebook.bitEncoderDecoder.app.Encoder;
-import com.facebook.bitEncoderDecoder.bitwise.RawBitwiseEncoderImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

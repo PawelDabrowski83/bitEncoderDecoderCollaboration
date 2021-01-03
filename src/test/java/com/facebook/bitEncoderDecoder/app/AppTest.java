@@ -1,6 +1,5 @@
-package com.facebook.com.bitEncoderDecoder.app;
+package com.facebook.bitEncoderDecoder.app;
 
-import com.facebook.bitEncoderDecoder.app.App;
 import com.facebook.bitEncoderDecoder.service.SendingBox;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
