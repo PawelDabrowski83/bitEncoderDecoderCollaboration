@@ -49,19 +49,19 @@ Stage | Strategy | Name | Remarks
 
 ## Workflow<a name="workflow"></a>
 <ol>
-<li>Project is divided into small <strong>Stages</strong>, each has some added value to the final project. Stages are not independent, but they contribute to final stage of project.</li>
-<li>Each Stage has some issues, smaller steps to accomplish - at least: tests (we try to follow TDD), documentation and implementation.</li>
+<li>Project is divided into small <strong>Stages</strong>, each has some added value to the final project. Stages contribute to final shape of the project.</li>
+<li>Each Stage is divided into smaller steps to accomplish - such as: tests (we try to follow TDD), documentation and implementation.</li>
 <li>Issues are created on Project page in column <strong>To do</strong> and assigned to a developer.</li>
 <li>When we start working on issue, we change its status from <strong>To do</strong> to <strong>In progress</strong>.</li>
 <li>When the code is done, we change status to <strong>In review</strong> and wait for acceptance of other members.</li>
-<li>If code is accepted, merge is done by reviewer. Change issue status to <strong>Done</strong></li>
+<li>If code is accepted, merge is done by the author. Change issue status to <strong>Done</strong></li>
 <li>if code is not accepted, add comments and change status to <strong>In progress</strong></li>
 </ol>
 
 ## Branching instruction<a name="branching"></a>
 <ul><li>Each branch is named for issue number and short label, describing feature. If there is no issue connected to your task - create one.</li>
-<li>We are pulling our code to <strong>dev</strong> branch.</li>
-<li>After completing new stage, there is a release pull from <strong>dev</strong> to <strong>main</strong>.</li></ul>
+<li>We are pulling our code to <strong>dev-StageX</strong> branch (where X is number of Stage).</li>
+<li>After completing new stage, there is a release pull from <strong>dev-StageX</strong> to <strong>main</strong>.</li></ul>
 
 <p>Example name of branch:</p>
 
@@ -76,6 +76,7 @@ Stage | Strategy | Name | Remarks
 [Stage 5 - bit level Encoder](#stage5)<br/>
 [Stage 6 - bit level Transmitter](#stage6)<br/>
 [Stage 7 - bit level Decoder](#stage7)<br/>
+[Stage 7.1 - refactor](#stage7-1)<br/>
 
 ### Stage 1<a name="stage1"></a>
 Introduction - create a method encode() in class Stage1. Method takes a string as an input and return another string with tripled each character.
@@ -188,5 +189,8 @@ Examples from previous step:
 ```
 <p>Take 3 bits of information and use them to formulate final message. Ignore parity bits, since they are only loss recovery strategy.</p>
 <p>There may be surplus zero bits in last byte of message, added at encoding step - reduce them.</p>
+
+### Stage 7.1<a name="stage7-1"></a>
+<p>During development we created some far-from-perfect code which works and passes tests, but it is a technical debt for us. In this step we will try to clean it up, before going further with new project features.</p>
 
 [go to top](#top)
