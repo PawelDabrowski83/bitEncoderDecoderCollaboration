@@ -1,6 +1,8 @@
-package com.facebook.bitEncoderDecoder.symbols;
+package com.facebook.com.bitEncoderDecoder.symbols;
 
-import com.facebook.bitEncoderDecoder.exception.InputNotEncodedCorrectly;
+import com.facebook.bitEncoderDecoder.exception.InputNotEncodedCorrectlyException;
+import com.facebook.bitEncoderDecoder.symbols.SymbolEncoder;
+import com.facebook.bitEncoderDecoder.symbols.SymbolDecoder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -43,7 +45,7 @@ public class SymbolDecoderTest {
     @ParameterizedTest
     @ValueSource(strings = {"AcrrBB_CC", ",., P Afal]ldek", ";CChthrraazzPgąsSs1zzcc0zZz!?!"})
     void encodeThrowException(String source) {
-        assertThrows(InputNotEncodedCorrectly.class, () -> {
+        assertThrows(InputNotEncodedCorrectlyException.class, () -> {
             symbolDecoder.decode(source);
         });
     }
