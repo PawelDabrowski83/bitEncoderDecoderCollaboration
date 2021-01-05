@@ -1,5 +1,6 @@
 package com.facebook.bitEncoderDecoder.symbols;
 
+import com.facebook.bitEncoderDecoder.exception.InputIsNullException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,7 +55,7 @@ public class SymbolEncoderTest {
         String input = null;
 
         // then
-        assertThrows(IllegalArgumentException.class, () -> symbolEncoder.encode(input));
+        assertThrows(InputIsNullException.class, () -> symbolEncoder.encode(input));
     }
 
     @Test
@@ -73,6 +74,19 @@ public class SymbolEncoderTest {
     public void shouldEncodeGivenSpaceReturnEmpty() {
         // given
         String input = " ";
+        String expected = "";
+
+        // when
+        String actual = symbolEncoder.encode(input);
+
+        // then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldEncodeGivenTwoSpacesReturnEmpty() {
+        // given
+        String input = "  ";
         String expected = "";
 
         // when

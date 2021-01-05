@@ -1,12 +1,14 @@
 package com.facebook.bitEncoderDecoder.symbols;
 
+import com.facebook.bitEncoderDecoder.app.Transmitter;
+import com.facebook.bitEncoderDecoder.symbols.SymbolTransmitterImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SymbolTransmitterTest {
+public class SymbolTransmitterImplTest {
 
-    SymbolTransmitter symbolTransmitter = new SymbolTransmitter();
+    Transmitter transmitter = new SymbolTransmitterImpl();
 
     @Test
     public void shouldSendGivenEmptyReturnEmpty() {
@@ -15,7 +17,7 @@ public class SymbolTransmitterTest {
         String outputString = "";
 
         // when
-        String actual = symbolTransmitter.send(input);
+        String actual = transmitter.send(input);
 
         // then
         assertEquals(outputString, actual);
@@ -28,7 +30,7 @@ public class SymbolTransmitterTest {
         String inputString = "aaabbbccc";
 
         // when
-        String actual = symbolTransmitter.send(inputString);
+        String actual = transmitter.send(inputString);
         boolean hasNoise = true;
 
         for (int i = 0; i < actual.length() && hasNoise; i += 3){
@@ -57,7 +59,7 @@ public class SymbolTransmitterTest {
         String input = null;
 
         // then
-        assertThrows(IllegalArgumentException.class, () -> symbolTransmitter.send(input));
+        assertThrows(IllegalArgumentException.class, () -> transmitter.send(input));
     }
 
     @Test
@@ -66,7 +68,7 @@ public class SymbolTransmitterTest {
         String input = "xuxpiplkk";
 
         // when
-        String actual = symbolTransmitter.send(input);
+        String actual = transmitter.send(input);
 
         // then
         assertEquals(input.length(), actual.length());
@@ -91,7 +93,7 @@ public class SymbolTransmitterTest {
         int expected = input.length();
 
         // when
-        int actual = symbolTransmitter.send(input).length();
+        int actual = transmitter.send(input).length();
 
         // then
         assertEquals(expected, actual);
@@ -105,7 +107,7 @@ public class SymbolTransmitterTest {
         String input = " ";
 
         // then
-        assertThrows(IllegalArgumentException.class, () -> symbolTransmitter.send(input));
+        assertThrows(IllegalArgumentException.class, () -> transmitter.send(input));
     }
 
 

@@ -1,6 +1,7 @@
 package com.facebook.bitEncoderDecoder.symbols;
 
 import com.facebook.bitEncoderDecoder.app.Encoder;
+import com.facebook.bitEncoderDecoder.exception.InputIsNullException;
 
 public class SymbolEncoder implements Encoder {
 
@@ -8,18 +9,28 @@ public class SymbolEncoder implements Encoder {
 
     @Override
     public String encode(String input) {
-        StringBuilder encodeString = new StringBuilder();
+        input = validateInput(input);
+        StringBuilder encodedString = getEncodedString(input);
+        return encodedString.toString();
+    }
+
+    private String validateInput(String input) {
         if (input == null) {
-            throw new IllegalArgumentException();
-        } else if (input.equalsIgnoreCase(" ")) {
+            throw new InputIsNullException();
+        }
+        if (input.isBlank()) {
             return "";
         }
-        for (int i = 0; i < input.length(); i++) {
-            String multipliedChar = String.valueOf(input.charAt(i)).repeat(MULTIPLICATION_FACTOR);
-            encodeString.append(multipliedChar);
+        return input;
+    }
 
+    private StringBuilder getEncodedString(String input) {
+        StringBuilder encodedString = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            String multipliedChar = String.valueOf(c).repeat(MULTIPLICATION_FACTOR);
+            encodedString.append(multipliedChar);
         }
-        return encodeString.toString();
+        return encodedString;
     }
 
 }
