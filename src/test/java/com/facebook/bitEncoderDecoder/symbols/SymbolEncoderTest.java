@@ -1,7 +1,6 @@
-package com.facebook.com.bitEncoderDecoder.symbols;
+package com.facebook.bitEncoderDecoder.symbols;
 
 import com.facebook.bitEncoderDecoder.exception.InputIsNullException;
-import com.facebook.bitEncoderDecoder.symbols.SymbolEncoder;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

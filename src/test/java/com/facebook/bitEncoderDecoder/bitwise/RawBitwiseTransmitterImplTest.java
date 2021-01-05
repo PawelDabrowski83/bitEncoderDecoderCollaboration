@@ -1,7 +1,6 @@
-package com.facebook.com.bitEncoderDecoder.bitwise;
+package com.facebook.bitEncoderDecoder.bitwise;
 
 import com.facebook.bitEncoderDecoder.app.Transmitter;
-import com.facebook.bitEncoderDecoder.bitwise.BitwiseTransmitterImpl;
 import com.facebook.bitEncoderDecoder.utils.RandomProvider;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,15 +11,15 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Matchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BitwiseTransmitterImplTest {
+public class RawBitwiseTransmitterImplTest {
 
     RandomProvider randomProvider = mock(RandomProvider.class);
-    Transmitter transmitter = new BitwiseTransmitterImpl(randomProvider);
+    Transmitter transmitter = new RawBitwiseTransmitterImpl(randomProvider);
 
     @DisplayName("Should send() outputs changed string")
     @ParameterizedTest

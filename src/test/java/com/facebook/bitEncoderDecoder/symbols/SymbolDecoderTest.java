@@ -1,8 +1,7 @@
-package com.facebook.com.bitEncoderDecoder.symbols;
+package com.facebook.bitEncoderDecoder.symbols;
+
 
 import com.facebook.bitEncoderDecoder.exception.InputNotEncodedCorrectlyException;
-import com.facebook.bitEncoderDecoder.symbols.SymbolEncoder;
-import com.facebook.bitEncoderDecoder.symbols.SymbolDecoder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

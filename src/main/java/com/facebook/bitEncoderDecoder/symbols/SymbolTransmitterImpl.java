@@ -4,21 +4,23 @@ import com.facebook.bitEncoderDecoder.app.Transmitter;
 import com.facebook.bitEncoderDecoder.utils.InputValidator;
 import com.facebook.bitEncoderDecoder.utils.Utils;
 
-public class SymbolTransmitter implements Transmitter {
+public class SymbolTransmitterImpl implements Transmitter {
 
     @Override
     public String send(String input){
         InputValidator.validateInput(input);
-        String[] triplets = prepareSegmentedInput(input);
+        String[] triplets = Utils.prepareSegmentedInput(input);
         if (triplets.length == 0){
             return "";
         }
+        return sendMessage(triplets);
+    }
+
+    private String sendMessage(String[] triplets) {
         StringBuilder target = new StringBuilder();
         for (String triplet : triplets){
-            String distorted = generateNoise(triplet);
-            target.append(distorted);
+            target.append(generateNoise(triplet));
         }
-
         return target.toString();
     }
 
@@ -31,24 +33,4 @@ public class SymbolTransmitter implements Transmitter {
         letters[randomPosition] = distorted;
         return String.valueOf(letters);
     }
-
-
-    private String[] prepareSegmentedInput(String input){
-        if (input.isBlank()){
-            return new String[0];
-        }
-
-        int numberOfTriplets = (int) Math.round(input.length() / 3.0);
-        String[] target = new String[numberOfTriplets];
-
-        StringBuilder source = new StringBuilder(input);
-        int counter = 0;
-        while (source.length() >= 3){
-            target[counter++] = source.substring(0, 3);
-            source.delete(0, 3);
-        }
-        return target;
-    }
-
-
 }
