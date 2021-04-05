@@ -20,7 +20,7 @@ Multistage coding exercise based on JetBrains Academy project https://hyperskill
 </ul>
 
 ## Development progress:<a name ="developmentProgress"></a>
-We are currently working on Stage 7.1 - refactor and clean up - deadline on 06.01.2021
+Project suspended.
 
 ## What is this project actually?<a name ="whatItDoes"></a>
 We are building an App which simulates transmission of information via internet.</br> 
